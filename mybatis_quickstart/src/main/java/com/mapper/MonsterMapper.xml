@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper xml文件，该文件可以去实现对应的接口的方法-->
+<!--namespace指定该xml文件指定和哪个接口对应-->
+
+<mapper namespace="com.mapper.MonsterMapper">
+<!--    配置AddMonster-->
+<!--    1.id：对应接口的方法名
+        2.parameterType:方法形参的类型（全类名） com.entity.Monster 可以简写
+        3.写入Sql
+        -->
+    <insert
+            id="addMonster"
+            parameterType="com.entity.Monster">
+        INSERT INTO `monster`
+        (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
+        VALUES (#{id}, #{birthday}, "#{email}", #{gender},#{name}, #{salary});
+    </insert>
+</mapper>
