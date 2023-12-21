@@ -8,4 +8,7 @@ import com.entity.Monster;
 public interface MonsterMapper {
     //添加Monster
     public void addMonster(Monster monster);
+
+    //删除Monster
+    public void delMonster(Integer id);
 }

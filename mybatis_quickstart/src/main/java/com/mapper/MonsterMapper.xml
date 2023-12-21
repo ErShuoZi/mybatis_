@@ -23,4 +23,10 @@
         (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
         VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary});
     </insert>
+
+
+<!--    删除-->
+    <delete id="delMonster" parameterType="java.lang.Integer">
+        DELETE FROM `monster` WHERE id = #{id};
+    </delete>
 </mapper>

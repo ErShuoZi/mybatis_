@@ -44,8 +44,13 @@ public class MonsterMapperTest {
         }
     }
     @Test
-    public void t2() {
-        System.out.println("t2");
+    public void delMonster() {
+       monsterMapper.delMonster(10);
+       if (sqlSession != null) {
+           sqlSession.commit();
+           sqlSession.close();
+       }
+        System.out.println("删除成功");
 
     }
 }
