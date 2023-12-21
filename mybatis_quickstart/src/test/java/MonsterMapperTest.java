@@ -35,6 +35,7 @@ public class MonsterMapperTest {
             monster.setSalary(1000 + i * 10);
             monsterMapper.addMonster(monster);
             System.out.println("添加对象--" + monster);
+            System.out.println("添加到表后自增长id=" + monster.getId());
         }
         //如果是增删改，则需要提交事务
         if (sqlSession != null){

@@ -15,7 +15,10 @@
         -->
     <insert
             id="addMonster"
-            parameterType="com.entity.Monster">
+            parameterType="com.entity.Monster"
+            useGeneratedKeys="true"
+            keyProperty="id"
+    >
         INSERT INTO `monster`
         (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
         VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary});
