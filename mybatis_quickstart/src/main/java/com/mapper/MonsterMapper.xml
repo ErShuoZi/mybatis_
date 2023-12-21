@@ -11,6 +11,7 @@
 <!--    1.id：对应接口的方法名
         2.parameterType:方法形参的类型（全类名） com.entity.Monster 可以简写
         3.写入Sql
+        4.#{id} 对应monster对象的属性id ，以此类推
         -->
     <insert
             id="addMonster"

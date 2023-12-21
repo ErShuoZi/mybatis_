@@ -26,7 +26,8 @@
             </dataSource>
         </environment>
     </environments>
+<!--    1.配置需要管理的mapper.xml文件-->
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <mapper resource="com/mapper/MonsterMapper.xml"/>
     </mappers>
 </configuration>
