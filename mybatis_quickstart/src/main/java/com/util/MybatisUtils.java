@@ -19,12 +19,11 @@ public class MybatisUtils {
     static {
         try {
             //指定资源文件、配置文件
-            String resource = "mybatis_config.xml";
+            String resource = "mybatis-config.xml";
             //获取到配置文件对应的流InputStream
-            InputStream resourceAsStream = Resources.getResourceAsStream(resource);
+            InputStream inputStream = Resources.getResourceAsStream(resource);
 
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-            System.out.println(sqlSessionFactory.getClass());
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

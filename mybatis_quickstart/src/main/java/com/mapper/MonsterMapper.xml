@@ -18,6 +18,6 @@
             parameterType="com.entity.Monster">
         INSERT INTO `monster`
         (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
-        VALUES (#{id}, #{birthday}, "#{email}", #{gender},#{name}, #{salary});
+        VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary});
     </insert>
 </mapper>

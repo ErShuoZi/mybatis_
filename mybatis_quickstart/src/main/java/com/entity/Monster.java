@@ -84,4 +84,17 @@ public class Monster {
         this.salary = salary;
         this.gender = gender;
     }
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday=" + birthday +
+                ", salary=" + salary +
+                ", gender=" + gender +
+                '}';
+    }
 }

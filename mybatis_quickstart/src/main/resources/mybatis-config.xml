@@ -10,7 +10,7 @@
 <!--            配置数据源-->
             <dataSource type="POOLED">
 <!--                配置驱动-->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
 <!--                配置连接mysql的url-->
 <!--                jdbc:mysql :协议
                     127.0.0.1:3306：指定连接mysql的ip + 端口
@@ -26,7 +26,9 @@
             </dataSource>
         </environment>
     </environments>
-<!--    1.配置需要管理的mapper.xml文件-->
+
+
+    <!--    1.配置需要管理的mapper.xml文件-->
     <mappers>
         <mapper resource="com/mapper/MonsterMapper.xml"/>
     </mappers>
