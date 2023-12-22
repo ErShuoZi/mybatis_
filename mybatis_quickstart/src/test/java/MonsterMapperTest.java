@@ -53,4 +53,23 @@ public class MonsterMapperTest {
         System.out.println("删除成功");
 
     }
+
+    @Test
+    public void updateMonster() {
+        Monster monster = new Monster();
+        monster.setAge(50);
+        monster.setBirthday(new Date());
+        monster.setEmail("xxx@qq.com");
+        monster.setGender(0);
+        monster.setName("wawa");
+        monster.setSalary(2000);
+        monster.setId(15);
+        monsterMapper.updateMonster(monster);
+        if (sqlSession != null) {
+            sqlSession.commit();
+            sqlSession.close();
+        }
+        System.out.println("修改成功");
+
+    }
 }
