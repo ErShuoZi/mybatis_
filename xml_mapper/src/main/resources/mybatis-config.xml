@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    配置Mybatis自带的日志输出-查看原生sql-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--        配置别名全类名可以简写为Monster-->
+    <typeAliases>
+<!--        单个文件别名-->
+<!--        <typeAlias type="com.entity.Monster" alias="Monster"/>-->
+<!--        整个包的文件别名-->
+        <package name="com.entity"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+<!--            配置事务管理器-->
+            <transactionManager type="JDBC"/>
+<!--            配置数据源-->
+            <dataSource type="POOLED">
+<!--                配置驱动-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+<!--                配置连接mysql的url-->
+<!--                jdbc:mysql :协议
+                    127.0.0.1:3306：指定连接mysql的ip + 端口
+                    mybatis：连接的DB
+                    useSSL=true:表示使用安全连接
+                    &amp;：表示&
+                    useUnicode=true：表示使用unicode 作用防止编码错误
+                    characterEncoding=utf-8：字符集，防止中文乱码
+                    -->
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatis_?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="88888888"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <!--    1.配置需要管理的mapper.xml文件-->
+    <mappers>
+<!--        <mapper resource="com/mapper/MonsterMapper.xml"/>-->
+<!--        这个包下的所有xml文件都会被管理-->
+        <package name="com.mapper"/>
+
+<!--        如果通过注解的方式，就不再使用MonsterMapper.xml-->
+<!--        但是需要在mybatis-config.xml引入含注解的类,如果没有引入，则不可使用-->
+
+<!--        <mapper class="com.mapper.MonsterAnnotation"/>-->
+    </mappers>
+</configuration>

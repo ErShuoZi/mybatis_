@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.mapper.MonsterMapper">
+<!--    配置了别名可以简写parameterType="com.mapper"-->
+    <select id="findMonsterByNameORId" parameterType="Monster" resultType="Monster">
+        SELECT * FROM monster WHERE `id` = #{id} OR `name` = #{name};
+    </select>
+
+    <select id="findMonsterByName" parameterType="String" resultType="Monster">
+        SELECT * FROM monster WHERE `name` LIKE '%${name}%';
+    </select>
+
+
+<!--    如果是以map形式传入参数，当id` > #{id} 表示入参map对象中又key 为id的属性-->
+    <select id="findMonsterByIdAndSalary_PrameterHashMap" parameterType="map" resultType="Monster">
+        SELECT * FROM `monster` WHERE `id` > #{id} AND `salary` > #{salary};
+    </select>
+
+    <select id="findMonsterByIdAndSalary_PrameterHashMap_ReturnHashMap" parameterType="map" resultType="map">
+        SELECT * FROM `monster` WHERE `id` > #{id} AND `salary` > #{salary};
+    </select>
+
+</mapper>

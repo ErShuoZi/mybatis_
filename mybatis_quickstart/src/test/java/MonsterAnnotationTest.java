@@ -34,6 +34,7 @@ public class MonsterAnnotationTest {
         monster.setName("yaya");
         monster.setSalary(9000);
         monsterAnnotation.addMonster(monster);
+        System.out.println("添加后monster的id="  + monster.getId());
         if (sqlSession != null) {
             sqlSession.commit();
             sqlSession.close();

@@ -1,10 +1,7 @@
 package com.mapper;
 
 import com.entity.Monster;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,6 +25,12 @@ public interface MonsterAnnotation {
      */
     //添加Monster
     @Insert(value = "INSERT INTO `monster` (`age`, `birthday`, `email`, `gender`, `name`, `salary`) VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary});")
+    /**
+     * useGeneratedKeys:可以返回自增的值
+     * keyProperty:自增值对应的对象的属性是哪个
+     * keyColumn:自增值对应表的字段
+     */
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     public void addMonster(Monster monster);
 
     //删除Monster
