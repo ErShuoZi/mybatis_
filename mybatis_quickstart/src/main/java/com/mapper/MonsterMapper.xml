@@ -34,4 +34,12 @@
         UPDATE  `monster`  SET `age` = #{age},`birthday` = #{birthday},`email` = #{email},`gender` = #{gender},
         `name`=#{name},`salary`= #{salary} WHERE id = #{id};
     </update>
+
+    <select id="getMonsterById" parameterType="java.lang.Integer" resultType="com.entity.Monster">
+        SELECT * FROM `monster` WHERE id = #{id};
+    </select>
+
+    <select id="findAllMonster" parameterType="java.lang.Integer" resultType="com.entity.Monster">
+        SELECT * FROM `monster`;
+    </select>
 </mapper>

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
 
 public class MonsterMapperTest {
     //属性
@@ -71,5 +72,31 @@ public class MonsterMapperTest {
         }
         System.out.println("修改成功");
 
+    }
+
+
+    @Test
+    public void getMonsterById() {
+
+        Monster monster= monsterMapper.getMonsterById(15);
+        if (sqlSession != null) {
+            sqlSession.close();
+        }
+        System.out.println("查询出的monster=" + monster);
+        System.out.println("查询成功");
+    }
+
+
+    @Test
+    public void findAllMonster() {
+
+        List<Monster> allMonster = monsterMapper.findAllMonster();
+        for (Monster monster : allMonster) {
+            System.out.println("monster=" + monster);
+        }
+        if (sqlSession != null) {
+            sqlSession.close();
+        }
+        System.out.println("查询成功");
     }
 }

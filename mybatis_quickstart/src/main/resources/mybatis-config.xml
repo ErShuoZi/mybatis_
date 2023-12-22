@@ -3,6 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--        配置别名全类名可以简写为Monster-->
+    <typeAliases>
+        <typeAlias type="com.entity.Monster" alias="Monster"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
 <!--            配置事务管理器-->

@@ -17,7 +17,7 @@ public interface MonsterMapper {
     //修改
     public void updateMonster(Monster monster);
 
-    public void getMonster(Integer id);
+    public Monster getMonsterById(Integer id);
 
     public List<Monster> findAllMonster();
 }
