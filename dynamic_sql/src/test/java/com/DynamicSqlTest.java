@@ -81,4 +81,20 @@ public class DynamicSqlTest {
             sqlSession.close();
         }
     }
+
+
+    @Test
+    public void findMonsterById_Trim() {
+        Map<String , Object> map = new HashMap<>();
+        map.put("name", "xx");
+        map.put("age",100);
+        List<Monster> monsters = monsterMapper.findMonsterById_Trim(map);
+        for (Monster monster1 : monsters) {
+            System.out.println(monster1);
+        }
+        if (sqlSession != null) {
+            sqlSession.commit();
+            sqlSession.close();
+        }
+    }
 }

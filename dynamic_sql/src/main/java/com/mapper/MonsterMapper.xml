@@ -2,9 +2,6 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
-
 <mapper namespace="com.mapper.MonsterMapper">
 <!--    如果使用原来的方式#{} 在test表达式是无法取出入参值，需要通过注解@Param
  public List<Monster> findMonsterByAge(@Param(value = "age") Integer age);
@@ -55,6 +52,24 @@
                 </foreach>
             </where>
         </if>
+    </select>
+
+
+
+<!--    使用where标签会加入where 同时会去除多余的AND条件-->
+
+<!--    <trim prefix="WHERE" prefixOverrides="and|or|ls">-->
+<!--            如果子句的开头为and|or|ls就去除-->
+    <select id="findMonsterById_Trim" parameterType="map" resultType="Monster">
+        SELECT * FROM `monster`
+       <trim prefix="WHERE" prefixOverrides="and|or|ls">
+            <if test="name != null and name != ''">
+                 ls `name` = #{name}
+            </if>
+            <if test="age != null and age != ''">
+                AND `age` = #{age}
+            </if>
+       </trim>
     </select>
 
 </mapper>
