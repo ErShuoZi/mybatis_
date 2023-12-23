@@ -7,7 +7,7 @@
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
-        <package name="com.entity"/>
+        <typeAlias type="com.entity.Monster" alias="Monster"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -20,10 +20,7 @@
             </dataSource>
         </environment>
     </environments>
-
-
     <mappers>
         <mapper resource="com/mapper/MonsterMapper.xml"/>
-
     </mappers>
 </configuration>

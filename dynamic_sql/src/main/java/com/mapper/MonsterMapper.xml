@@ -72,4 +72,45 @@
        </trim>
     </select>
 
+
+    <update id="updateMonster_set" parameterType="map" >
+<!--        SET `age` = 10,`email` = 'aaa.com',`name` = 'xx'-->
+        UPDATE `monster`
+        <set>
+          <if test="age != null and age != ''">
+              `age` = #{age},
+          </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="birthday != null and birthday != ''">
+                `birthday` = #{birthday},
+            </if>
+            <if test="gender != null and gender != ''">
+                `gender` = #{gender},
+            </if>
+            <if test="salary != null and salary != ''">
+                `salary` = #{salary},
+            </if>
+
+        </set>
+        Where id = #{id}
+    </update>
+
+
+    <insert
+            id="updateMonster_Add"
+            parameterType="Monster"
+            useGeneratedKeys="true"
+            keyProperty="id"
+    >
+        INSERT INTO `monster`
+        (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
+        VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary});
+    </insert>
+
+
 </mapper>

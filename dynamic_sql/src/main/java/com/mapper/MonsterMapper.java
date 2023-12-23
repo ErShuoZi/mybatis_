@@ -15,4 +15,6 @@ public interface MonsterMapper {
 
  public List<Monster> findMonsterById_forEach(Map<String,Object> map);
  public List<Monster> findMonsterById_Trim(Map<String,Object> map);
+ public void updateMonster_set(Map<String,Object> map);
+ public void updateMonster_Add(Monster monster);
 }

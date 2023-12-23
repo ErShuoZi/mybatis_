@@ -7,10 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DynamicSqlTest {
 
@@ -19,13 +16,14 @@ public class DynamicSqlTest {
 
     @Before
     public void init() {
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
+         sqlSession = MybatisUtils.getSqlSession();
          monsterMapper = sqlSession.getMapper(MonsterMapper.class);
+        System.out.println("sqlSession init=" + sqlSession);
     }
 
     @Test
     public void findMonsterByAge() {
-        List<Monster> monsters = monsterMapper.findMonsterByAge(-1);
+        List<Monster> monsters = monsterMapper.findMonsterByAge(10);
         for (Monster monster : monsters) {
             System.out.println(monster);
         }
@@ -86,8 +84,8 @@ public class DynamicSqlTest {
     @Test
     public void findMonsterById_Trim() {
         Map<String , Object> map = new HashMap<>();
-        map.put("name", "xx");
-        map.put("age",100);
+        map.put("name", "哈ha0");
+        map.put("age",10);
         List<Monster> monsters = monsterMapper.findMonsterById_Trim(map);
         for (Monster monster1 : monsters) {
             System.out.println(monster1);
@@ -97,4 +95,23 @@ public class DynamicSqlTest {
             sqlSession.close();
         }
     }
+
+
+    @Test
+    public void updateMonster_set() {
+       Map<String , Object> map = new HashMap<>();
+       map.put("id",42);
+       map.put("name","哈哈哈");
+       map.put("age",88);
+       map.put("email","aaa.com");
+       map.put("gender","0");
+        map.put("salary",9999);
+        System.out.println(map);
+      monsterMapper.updateMonster_set(map);
+        if (sqlSession != null) {
+            sqlSession.commit();
+            sqlSession.close();
+        }
+    }
+
 }
