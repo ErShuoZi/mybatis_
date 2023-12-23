@@ -17,6 +17,7 @@
     <modules>
         <module>mybatis_quickstart</module>
         <module>xml_mapper</module>
+        <module>dynamic_sql</module>
     </modules>
 
     <!--    加入依赖-->

@@ -41,9 +41,10 @@
 
     <!--    1.配置需要管理的mapper.xml文件-->
     <mappers>
-<!--        <mapper resource="com/mapper/MonsterMapper.xml"/>-->
+        <mapper resource="com/mapper/MonsterMapper.xml"/>
+        <mapper resource="com/mapper/UserMapper.xml"/>
 <!--        这个包下的所有xml文件都会被管理-->
-        <package name="com.mapper"/>
+<!--        <package name="com.mapper"/>-->
 
 <!--        如果通过注解的方式，就不再使用MonsterMapper.xml-->
 <!--        但是需要在mybatis-config.xml引入含注解的类,如果没有引入，则不可使用-->
