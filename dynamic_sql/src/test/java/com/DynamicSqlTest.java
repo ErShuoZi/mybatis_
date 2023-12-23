@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DynamicSqlTest {
 
@@ -38,6 +40,22 @@ public class DynamicSqlTest {
         monster.setName("xx");
         monster.setId(-1);
         List<Monster> monsters = monsterMapper.findMonsterByIdAndName(monster);
+        for (Monster monster1 : monsters) {
+            System.out.println(monster1);
+        }
+        if (sqlSession != null) {
+            sqlSession.commit();
+            sqlSession.close();
+        }
+    }
+
+
+    @Test
+    public void findMonsterByIdOrName_choose() {
+        Map<String , Object> map = new HashMap<>();
+//        map.put("id",21);
+//        map.put("name","xx");
+        List<Monster> monsters = monsterMapper.findMonsterByIdOrName_choose(map);
         for (Monster monster1 : monsters) {
             System.out.println(monster1);
         }
