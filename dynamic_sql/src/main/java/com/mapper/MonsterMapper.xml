@@ -16,4 +16,18 @@
         </if>
     </select>
 
+<!--    where + if-->
+<!--    如果入参是对象，在test表达式中，可以直接使用对象属性名-->
+    <select id="findMonsterByIdAndName" parameterType="Monster" resultType="Monster">
+        SELECT * FROM `monster`
+        <where>
+            <if test="id >= 0">
+                AND id > #{id}
+            </if>
+            <if test="name != null and name != ''">
+                AND `name` = #{name};
+            </if>
+        </where>
+    </select>
+
 </mapper>
