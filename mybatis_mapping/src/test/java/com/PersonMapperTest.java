@@ -28,4 +28,14 @@ public class PersonMapperTest {
             sqlSession.close();
         }
     }
+
+    @Test
+    public void  getPersonById2() {
+        Person person2 = personMapper.getPersonById2(1);
+        System.out.println("person2=" + person2);
+        if (sqlSession!=null) {
+            sqlSession.commit();
+            sqlSession.close();
+        }
+    }
 }
