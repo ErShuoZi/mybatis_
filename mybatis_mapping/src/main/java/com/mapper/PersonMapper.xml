@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.PersonMapper">
+<!--    //通过Person的id获取到Person，包括这个Person关联的IdenCard对象[级联查询]-->
+<!--    如果配置成resultType="Person"，会发生没有实现级联查询的问题-->
+<!--    使用resultMap解决-->
+    <resultMap id="PersonResultMap" type="Person">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+<!--        association - 复杂类型的关联-->
+<!--        property="card" ：表示对Person的card属性进行配置-->
+<!--        javaType="IdenCard"：表示card属性的类型-->
+
+        <association property="card" javaType="IdenCard" >
+            <result property="id" column="id"></result>
+            <result property="card_sn" column="card_sn"></result>
+        </association>
+    </resultMap>
+    <select id="getPersonById" parameterType="java.lang.Integer" resultMap="PersonResultMap">
+        SELECT * FROM `person`,`idencard` WHERE `person`.id = #{id} AND `idencard`.id = `person`.card_id;
+    </select>
+
+</mapper>
